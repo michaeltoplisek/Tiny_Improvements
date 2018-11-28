@@ -13,7 +13,7 @@ app.use(express.static("public"));
 mongoose.connect('mongodb://localhost/tinyimprovements', { useNewUrlParser: true });
 
 
-require('./routes/api-routes')(app);
+require('./routes.js')(app);
 
 
 app.listen(PORT, function() {
