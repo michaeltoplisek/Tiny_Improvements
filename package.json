@@ -21,5 +21,8 @@
   "dependencies": {
     "express": "^4.16.4",
     "mongoose": "^5.3.14"
+  },
+  "scripts": {
+    "start": "node server.js"
   }
 }
