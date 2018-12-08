@@ -4,7 +4,6 @@
   "description": "",
   "main": "logic.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "repository": {
@@ -19,10 +18,8 @@
   },
   "homepage": "https://github.com/michaeltoplisek/Tiny_Improvements#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "express": "^4.16.4",
     "mongoose": "^5.3.14"
-  },
-  "scripts": {
-    "start": "node server.js"
   }
 }
