@@ -12,7 +12,8 @@ class App extends Component {
       kudoTitle: '',
       kudoBody: '',
       kudoSender: '',
-      KudoReceiver: ''
+      KudoReceiver: '',
+      KudoList: []
     };
 
     this.toggle = this.toggle.bind(this);
@@ -37,8 +38,11 @@ class App extends Component {
 
   getKudos = () => {
     $.get('/api/kudo')
-    .then(function(data) {
-      console.log(data)
+    .then((data) => {
+      console.log(data.data)
+      this.setState({
+        kudoList: data.data
+      })
     })
   }
 
@@ -125,6 +129,9 @@ class App extends Component {
             </ModalBody>
           </Modal>
         </div>
+        {this.state.KudoList.map(kudo => (
+          <div>{kudo.title}</div>
+        ))}
       </div >
     );
   }

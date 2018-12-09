@@ -16,7 +16,7 @@ if (process.env.MONGODB_URI) {
   mongoose.connect(databaseUri)
 }
 
-require('./routes.js')(app);
+require('routes.js')(app);
 
 
 app.listen(PORT, function() {
