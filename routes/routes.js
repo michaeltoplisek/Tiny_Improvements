@@ -1,7 +1,12 @@
 const User = require('../modules/User.js');
 const Kudo = require('../modules/Kudo.js');
+const path = require('path')
 
 module.exports = function (app) {
+
+  app.get('/', function (req, res) {
+    res.sendFile(path.join(__dirname + './client/public/index.html'))
+  })
 
     app.post('/api/kudo', function (req, res) {
         Kudo.create(req.body)
