@@ -34,6 +34,12 @@ class App extends Component {
       body: this.state.kudoBody
     }
     console.log(newKudo)
+    $.post('/api/kudo', newKudo)
+    .then((result) => {
+      this.setState({
+        KudoList: result.data
+      })
+    })
   }
 
   getKudos = () => {
@@ -41,7 +47,7 @@ class App extends Component {
     .then((data) => {
       console.log(data.data)
       this.setState({
-        kudoList: data.data
+        KudoList: data.data
       })
     })
   }
@@ -129,9 +135,11 @@ class App extends Component {
             </ModalBody>
           </Modal>
         </div>
-        {this.state.KudoList.map(kudo => (
-          <div>{kudo.title}</div>
+        <div className='float-right'>
+        {this.state.KudoList.map((kudo) => (
+          <div><h3>{kudo.title}</h3></div>
         ))}
+        </div>
       </div >
     );
   }

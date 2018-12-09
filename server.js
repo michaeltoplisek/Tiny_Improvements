@@ -1,12 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const app = express();
 
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static("./client/public"));
 
 var databaseUri = 'mongodb://localhost/tinyimprovements';
 
@@ -16,7 +17,7 @@ if (process.env.MONGODB_URI) {
   mongoose.connect(databaseUri)
 }
 
-require('routes.js')(app);
+require('./routes/routes.js')(app);
 
 
 app.listen(PORT, function() {

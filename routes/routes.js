@@ -1,5 +1,5 @@
-const User = require('./modules/User.js');
-const Kudo = require('./modules/Kudo.js');
+const User = require('../modules/User.js');
+const Kudo = require('../modules/Kudo.js');
 
 module.exports = function (app) {
 
