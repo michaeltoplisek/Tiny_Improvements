@@ -137,7 +137,12 @@ class App extends Component {
         </div>
         <div className='float-right'>
         {this.state.KudoList.map((kudo) => (
-          <div><h3>{kudo.title}</h3></div>
+          <div key={kudo._id}>
+            <h3>{kudo.title}</h3>
+            <p>{kudo.body}</p>
+            <p>From: {kudo.Sender}</p>
+            <p>To: {kudo.Receiver}</p>
+          </div>
         ))}
         </div>
       </div >
