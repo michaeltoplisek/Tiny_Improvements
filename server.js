@@ -14,13 +14,9 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("./client/public"));
 }
 
-var databaseUri = 'mongodb://localhost/tinyimprovements';
+const MONGOD_URI = process.env.MONGODB_URI || 'mongodb://localhost/tinyimprovements';
 
-if (process.env.MONGODB_URI) {
-  mongoose.connect(process.env.MONGODB_URI)
-} else {
-  mongoose.connect(databaseUri)
-}
+mongoose.connect(MONGOD_URI, { useNewUrlParser: true})
 
 require('./routes/routes.js')(app);
 
